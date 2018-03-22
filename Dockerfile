@@ -12,6 +12,10 @@ RUN set -x && \
 
 VOLUME /var/lib/postgresql
 
+ENV DB_NAME ''
+ENV DB_USER ''
+ENV DB_PASS ''
+
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
