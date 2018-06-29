@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
+# option with entrypoint
+if [ -f "/option.sh" ]; then /option.sh; fi
+
 source ${PG_APP_HOME}/functions
 
 [[ ${DEBUG} == true ]] && set -x
