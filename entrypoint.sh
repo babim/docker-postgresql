@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set_listen_addresses() {
 	sedEscapedValue="$(echo "$1" | sed 's/[\/&]/\\&/g')"
@@ -83,5 +83,8 @@ EOSQL
 
     exec gosu postgres "$@"
 fi
+
+# option with entrypoint
+if [ -f "/option.sh" ]; then /option.sh; fi
 
 exec "$@"
