@@ -1,14 +1,5 @@
 [![](https://images.microbadger.com/badges/image/babim/postgresql.svg)](https://microbadger.com/images/babim/postgresql "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql.svg)](https://microbadger.com/images/babim/postgresql "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/babim/postgresql:ssh.svg)](https://microbadger.com/images/babim/postgresql:ssh "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:ssh.svg)](https://microbadger.com/images/babim/postgresql:ssh "Get your own version badge on microbadger.com")
-
-[![](https://images.microbadger.com/badges/image/babim/postgresql:cron.svg)](https://microbadger.com/images/babim/postgresql:cron "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:cron.svg)](https://microbadger.com/images/babim/postgresql:cron "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/babim/postgresql:cron.ssh.svg)](https://microbadger.com/images/babim/postgresql:cron.ssh "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:cron.ssh.svg)](https://microbadger.com/images/babim/postgresql:cron.ssh "Get your own version badge on microbadger.com")
-
 [![](https://images.microbadger.com/badges/image/babim/postgresql:alpine.svg)](https://microbadger.com/images/babim/postgresql:alpine "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:alpine.svg)](https://microbadger.com/images/babim/postgresql:alpine "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/babim/postgresql:alpine.ssh.svg)](https://microbadger.com/images/babim/postgresql:alpine.ssh "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:alpine.ssh.svg)](https://microbadger.com/images/babim/postgresql:alpine.ssh "Get your own version badge on microbadger.com")
-
-[![](https://images.microbadger.com/badges/image/babim/postgresql:alpine.cron.svg)](https://microbadger.com/images/babim/postgresql:alpine.cron "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:alpine.cron.svg)](https://microbadger.com/images/babim/postgresql:alpine.cron "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/babim/postgresql:alpine.cron.ssh.svg)](https://microbadger.com/images/babim/postgresql:alpine.cron.ssh "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/postgresql:alpine.cron.ssh.svg)](https://microbadger.com/images/babim/postgresql:alpine.cron.ssh "Get your own version badge on microbadger.com")
 
 # babim/postgresql
 
@@ -393,4 +384,54 @@ For debugging and maintenance purposes you may want access the containers shell.
 
 ```bash
 docker exec -it postgresql bash
+```
+
+## Environment ssh, cron option
+
+#### SSH = SSH service for docker container
+#### SSHPASS = password for SSH service
+#### CRON = Crontab service for container
+#### NFS = NFS client mount for container (need full permission)
+#### SYNOLOGY = SYNOLOGY user ID
+#### UPGRADE = upgrade OS for container
+#### DNS = DNS google, cloudflare for this container
+#### FULLOPTION = all option above
+
+
+```
+SSH=false
+SSHPASS=root (or you set)
+
+CRON=false
+NFS=false
+SYNOLOGY=false
+UPGRADE=false
+WWWUSER=www-data
+MYSQLUSER=mysql
+FULLOPTION=true
+DNS=false
+```
+
+## NFS option
+Writing back to the host:
+```
+docker run -itd \
+    --privileged=true \
+    --net=host \
+    --name nfs-movies \
+    -v /media/nfs-movies:/mnt/nfs-1:shared \
+    -e SERVER=192.168.0.9 \
+    -e SHARE=movies \
+    babim/........
+```
+```
+default:
+FSTYPE nfs4
+MOUNT_OPTIONS nfsvers=4
+MOUNTPOINT /mnt/nfs-1
+---
+max FSTYPE, MOUNT_OPTIONS, MOUNTPOINT
+FSTYPE2
+FSTYPE3
+FSTYPE4
 ```
