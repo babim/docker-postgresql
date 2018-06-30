@@ -4,7 +4,7 @@ FROM babim/debianbase:8
 ## ubuntu/debian
 RUN apt-get update && \
     apt-get install -y wget bash && cd / && wget --no-check-certificate https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh && \
-    chmod 755 /option.sh && apt-get purge -y wget
+    chmod 755 /option.sh
 
 ENV PG_APP_HOME="/etc/docker-postgresql"\
     PG_VERSION=10 \
