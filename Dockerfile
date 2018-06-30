@@ -26,7 +26,7 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
  && ln -sf ${PG_DATADIR}/pg_hba.conf /etc/postgresql/${PG_VERSION}/main/pg_hba.conf \
  && ln -sf ${PG_DATADIR}/pg_ident.conf /etc/postgresql/${PG_VERSION}/main/pg_ident.conf \
  && rm -rf ${PG_HOME} \
- && rm -rf /var/lib/apt/lists/*
+ && apt-get purge -y wget && rm -rf /var/lib/apt/lists/*
 
 COPY runtime/ ${PG_APP_HOME}/
 COPY entrypoint.sh /entrypoint.sh
