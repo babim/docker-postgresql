@@ -19,7 +19,7 @@ ENV PG_BINDIR=/usr/lib/postgresql/${PG_VERSION}/bin \
     PG_DATADIR=${PG_HOME}/${PG_VERSION}/main
 
 # install
-    curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20Postgresql%20install/postgresql_install.sh | bash
+RUN curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20Postgresql%20install/postgresql_install.sh | bash
 
 EXPOSE 5432/tcp
 VOLUME ["${PG_HOME}", "${PG_RUNDIR}"]
