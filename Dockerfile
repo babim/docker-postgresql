@@ -4,7 +4,7 @@ ENV OSDEB stretch
 # Download option
 ## ubuntu/debian
 RUN apt-get update && \
-    apt-get install -y wget curl bash && cd / && wget --no-check-certificate https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh && \
+    apt-get install -y wget curl gnupg bash && cd / && wget --no-check-certificate https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh && \
     chmod 755 /option.sh
 
 ENV PG_APP_HOME="/etc/docker-postgresql"\
