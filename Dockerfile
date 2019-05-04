@@ -2,7 +2,7 @@ FROM babim/alpinebase:3.8
 
 ENV LANG en_US.utf8
 ENV PG_MAJOR 10
-ENV PG_VERSION 10.5
+ENV PG_VERSION 10.7
 
 # option
 RUN apk add --no-cache curl bash && curl https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh -o /option.sh && \
