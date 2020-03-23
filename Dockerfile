@@ -1,5 +1,5 @@
-FROM babim/debianbase:9
-ENV OSDEB stretch
+FROM babim/debianbase:10
+ENV OSDEB buster
 
 # Download option
 ## ubuntu/debian
