@@ -1,5 +1,5 @@
-FROM babim/debianbase:9
-ENV OSDEB stretch
+FROM babim/debianbase:11
+ENV OSDEB bullseye
 
 # Download option
 ## ubuntu/debian
@@ -8,7 +8,7 @@ RUN apt-get update && \
     chmod 755 /option.sh
 
 ENV PG_APP_HOME="/etc/docker-postgresql"\
-    PG_VERSION=9.6 \
+    PG_VERSION=14 \
     PG_USER=postgres \
     PG_HOME=/var/lib/postgresql \
     PG_RUNDIR=/run/postgresql \
