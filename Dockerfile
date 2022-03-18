@@ -1,5 +1,5 @@
-FROM babim/debianbase:10
-ENV OSDEB buster
+FROM babim/debianbase:11
+ENV OSDEB bullseye
 
 # Download option
 ## ubuntu/debian
