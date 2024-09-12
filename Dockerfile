@@ -8,7 +8,7 @@ RUN apt-get update && \
     chmod 755 /option.sh
 
 ENV PG_APP_HOME="/etc/docker-postgresql"\
-    PG_VERSION=16 \
+    PG_VERSION=17 \
     PG_USER=postgres \
     PG_HOME=/var/lib/postgresql \
     PG_RUNDIR=/run/postgresql \
